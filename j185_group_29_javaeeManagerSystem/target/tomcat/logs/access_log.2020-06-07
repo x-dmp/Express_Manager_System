@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [07/Jun/2020:17:15:50 +0800] "GET /j185_group_05_javaeeManagerSystem/sends/ HTTP/1.1" 200 2441 http-bio-81-exec-2 407
+0:0:0:0:0:0:0:1 - - [07/Jun/2020:17:15:56 +0800] "GET /j185_group_05_javaeeManagerSystem/sends/ HTTP/1.1" 200 2441 http-bio-81-exec-4 31

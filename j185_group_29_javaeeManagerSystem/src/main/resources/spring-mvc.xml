@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 解决响应map出错 开启springMVC注解 -->
+    <mvc:annotation-driven />
+
+    <!--配置扫描controller-->
+    <context:component-scan base-package="cn.edu.cuit.controller" />
+
+    <!-- 接口跨域配置 -->
+    <mvc:cors>
+        <!-- allowed-methods="*" --> <!-- 表示所有请求都有效 -->
+        <mvc:mapping path="/**" allowed-origins="*"
+                     allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
+                     allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+                     allow-credentials="true" />
+    </mvc:cors>
+	
+	<!--文件上传解析器-->
+    <!--id必须是multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--指定上传的编码-->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!--单文件上传大小 5M -->
+        <property name="maxUploadSizePerFile" value="5242880"/>
+    </bean>
+
+</beans>
